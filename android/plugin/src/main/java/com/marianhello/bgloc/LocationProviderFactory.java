@@ -15,6 +15,7 @@ import com.marianhello.bgloc.LocationProvider;
 import com.tenforwardconsulting.bgloc.DistanceFilterLocationProvider;
 import com.marianhello.bgloc.ActivityRecognitionLocationProvider;
 import java.lang.IllegalArgumentException;
+import cz.iquest.bgloc.GpsLocationProvider;
 
 /**
  * LocationProviderFactory
@@ -35,6 +36,9 @@ public class LocationProviderFactory {
                 break;
             case Config.ANDROID_ACTIVITY_PROVIDER:
                 provider = new ActivityRecognitionLocationProvider(context);
+                break;
+            case Config.GPS_PROVIDER:
+                provider = new GpsLocationProvider(context);
                 break;
             default:
                 throw new IllegalArgumentException("Provider not found");
